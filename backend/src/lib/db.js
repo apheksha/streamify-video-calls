@@ -12,7 +12,6 @@ export default async function connectDB() {
 
     cached.promise = mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
     }).then((mongoose) => {
       console.log("✅ MongoDB connected");
       return mongoose;
