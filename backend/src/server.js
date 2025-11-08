@@ -25,13 +25,13 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
-app.use("/api/chat", chatRoutes);
-
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
+app.use("/chat", chatRoutes);
 
 app.get("/", (req, res) => {
   res.send(" Streamify backend is running on Vercel!");
 });
+app.get("/favicon.ico", (req, res) => res.status(204).end());
 
 export default app; 
