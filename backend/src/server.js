@@ -33,7 +33,7 @@ app.use("/api/chat", chatRoutes);
 
 
 app.get("/", (req, res) => {
-  res.send("✅ Streamify backend is running on Vercel!");
+  res.send(" Streamify backend is running on Vercel!");
 });
 
 export default app; 
