@@ -1,2 +1,38 @@
-import app from "../src/server.js";  
-export default app;     
+
+import express from "express";
+import "dotenv/config";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import path from "path";
+
+import authRoutes from "../src/routes/auth.route.js";
+import userRoutes from "../src/routes/user.route.js";
+import chatRoutes from "../src/routes/chat.route.js";
+import { connectDB } from "../src/lib/db.js";
+
+const app = express();
+const __dirname = path.resolve();
+
+
+connectDB();
+
+app.use(
+  cors({
+    origin: ["https://streamify-video-calls-frontend.vercel.app"],
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/chat", chatRoutes);
+
+
+app.get("/", (req, res) => {
+  res.send("✅ Streamify backend is live on Vercel!");
+});
+
+export default app;
