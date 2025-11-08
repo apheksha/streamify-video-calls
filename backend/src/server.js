@@ -8,7 +8,7 @@ import authRoutes from "../src/routes/auth.route.js";
 import userRoutes from "../src/routes/user.route.js";
 import chatRoutes from "../src/routes/chat.route.js";
 
-import { connectDB } from "../src/lib/db.js";
+import { connectDB } from "./lib/db.js";
 
 const app = express();
 const __dirname = path.resolve();
@@ -26,7 +26,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
-await connectDB();
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/chat", chatRoutes);
