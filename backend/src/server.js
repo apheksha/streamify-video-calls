@@ -18,7 +18,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["https://streamify-video-calls-frontend.vercel.app"],
+    origin: ["https://streamify-video-calls-frontend.vercel.app", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
